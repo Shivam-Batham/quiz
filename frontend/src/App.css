@@ -1,0 +1,19 @@
+.submitbtn{
+    width: 50px;
+    height: 40px;
+    border-radius: inherit;
+    animation: rotation 2s linear infinite;
+  }
+
+  /* .submitbtn::after {
+    filter: blur(3.5rem);
+  } */
+  
+  @keyframes rotation {
+    0% {
+      --gradient-angle: 0deg;
+    }
+    100% {
+      --gradient-angle: 360deg;
+    }
+  }
