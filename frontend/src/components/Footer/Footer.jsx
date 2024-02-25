@@ -5,7 +5,7 @@ function Footer() {
 
  
   return (
-    <div className="w-screen bg-gray-950 text-white border-t-2 border-gray-400 font-sans  flex items-center justify-around flex-col pt-6 pb-2 overflow-hidden">
+    <div className="w-screen bg-gray-950 text-white border-t-2 border-gray-400 font-sans  flex items-center justify-around flex-col pt-6 pb-2 ">
       <div className="flex items-center justify-around w-screen pb-4">
         <div>
           <p className="text-xl font-bold">MyWeb Solution</p>

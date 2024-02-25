@@ -1,8 +1,17 @@
-.submitbtn{
-    width: 50px;
-    height: 40px;
-    border-radius: inherit;
-    animation: rotation 2s linear infinite;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  body{
+    /* background: #030710; */
+    /* background: #030715; */
+    /* background: #030715; */
+    color: aliceblue;
+    /* color: black; */
+    max-width: 100%;
+    overflow-x: hidden;
+    
   }
 
   /* .submitbtn::after {
