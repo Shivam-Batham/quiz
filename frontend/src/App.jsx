@@ -1,32 +1,42 @@
-import './App.css'
-import Question from './components/Question/Question'
-
-
+import "./App.css";
+import Question from "./components/Question/Question";
+import { useEffect, useState } from "react";
+import axios from "axios";
 function App() {
+  const [quizdetails, setQuizdetails] = useState([]);
 
-  const Questions = ["when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem",
-  "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem but also the leap into electronic typesetting.",
-  "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem",
-  "But also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem",
-  "when an unknown printer took a galley of type and scrambled it to make a type specimen book.  It was popularised in the 1960s with the release of Letraset sheets containing Lorem"]
-  const index = [1,2,3,4,5]
-  let i=0;
-  const options = [" It was popularised in the 1960s with the release of Letraset sheets containing Lorem","But also the leap into electronic typesetting, remaining essentially unchanged."," It was popularised in the 1960s with the release of Letraset sheets containing Lorem","option 4"]
+  const url = "https://myweb-2t4i.onrender.com/api/v1/quiz/getalluser";
+  const userdata = {
+    name: "shivam",
+    contact: "1233",
+    email: "shivam1234@gmail.com",
+    questions: 1,
+    timeTaken: 4,
+  };
+  
+  // useEffect(()=>{
+    axios.get(url)
+    .then((res)=>(setQuizdetails(res.data[0].questions)))
+  // },[])
+  
+quizdetails.map((paper)=>{
+        console.log(paper.question)
+        console.log(paper.options[0].option1)
+        console.log(paper.options[0].option2)
+        console.log(paper.options[0].option3)
+        console.log(paper.options[0].option4)
+       
+        
+})
   return (
     <>
-      <div className='grid sm:grid-cols-1   bg-black'>
-        
-        {
-         index.map((quesNumber)=>(
-          <Question quesNumber={quesNumber} no={index[i++]} options = {options} />
-         ))
-        }
-        
-
-       
+      <div className="pt-32 grid sm:grid-cols-1   bg-black">
+       {quizdetails.map((paper,index)=>(
+        <Question key={paper} quesNumber={paper.question} options={paper.options} no={index} />
+       ))}
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

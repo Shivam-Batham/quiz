@@ -8,20 +8,20 @@ function Question({ quesNumber,no, options }) {
 
         <div className="min-h-[100px] text-start mb-2 ">
 
-           <h3><span>{no}. </span> {quesNumber} </h3>
+           <h3><span>{no+1}. </span> {quesNumber} </h3>
         </div>
         <div className="min-h-[100px]  ">
           <div className="min-h-[100px] border rounded-xl mb-5 border-green-400">
-           O {options[0]}
+           O {options[0].option1}
           </div>
           <div className="min-h-[100px] border rounded-xl mb-5 border-green-400">
-            {options[1]}
+            {options[0].option2}
           </div>
           <div className="min-h-[100px] border rounded-xl mb-5 border-green-400">
-            {options[2]}
+            {options[0].option3}
           </div>
           <div className="min-h-[100px] border rounded-xl mb-5 border-green-400">
-            {options[3]}
+            {options[0].option4}
           </div>
         </div>
       </div>
