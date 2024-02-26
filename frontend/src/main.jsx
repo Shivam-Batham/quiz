@@ -5,16 +5,17 @@ import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import App from './App.jsx'
-
+import Home from './components/Page1/Home.jsx'
 
 
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route  path='/' element={<Layout />}>
-      <Route path='' element={<App />} />
-      {/* <Route path='about' element={<About />} /> */}
+    <Route  path='/' element={<Home />}>
+      {/* <Route path='contest' element={<Layout />} >
+        <Route path=''
+      </Route> */}
     </Route>
   )
 )

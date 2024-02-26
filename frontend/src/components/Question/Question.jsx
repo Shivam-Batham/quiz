@@ -12,7 +12,7 @@ function Question({ quesNumber,no, options }) {
         </div>
         <div className="min-h-[100px]  ">
           <div className="min-h-[100px] border rounded-xl mb-5 border-green-400">
-           O {options[0].option1}
+            {options[0].option1}
           </div>
           <div className="min-h-[100px] border rounded-xl mb-5 border-green-400">
             {options[0].option2}
@@ -30,10 +30,3 @@ function Question({ quesNumber,no, options }) {
 }
 
 export default Question;
-
-// shadow-xl shadow-neutral-700 border border-gray-400
-// {
-//   options.map((i)=>(
-//       <p> {i}</p>
-//   ))
-// }
