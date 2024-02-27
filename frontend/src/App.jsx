@@ -1,10 +1,14 @@
 import "./App.css";
 import Question from "./components/Question/Question";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-function App() {
-  const [quizdetails, setQuizdetails] = useState([]);
+import { useNavigate } from "react-router-dom";
 
+function App() {
+  // let windowsize  = useRef([window.innerWidth])
+  // console.log(windowsize.current[0])
+  const [quizdetails, setQuizdetails] = useState([]);
+  const navigate = useNavigate();
   const url = "https://myweb-2t4i.onrender.com/api/v1/quiz/getalluser";
   const userdata = {
     name: "shivam",
@@ -14,27 +18,35 @@ function App() {
     timeTaken: 4,
   };
   
-  // useEffect(()=>{
+// get all user Api call 
     axios.get(url)
     .then((res)=>(setQuizdetails(res.data[0].questions)))
-  // },[])
-  
-quizdetails.map((paper)=>{
-        console.log(paper.question)
-        console.log(paper.options[0].option1)
-        console.log(paper.options[0].option2)
-        console.log(paper.options[0].option3)
-        console.log(paper.options[0].option4)
-       
-        
-})
+
+    const handleSubmitquiz =  (e) => {
+      e.preventDefault();
+      console.log("paper submited")
+      console.log(e);
+     
+    };
+
   return (
     <>
-      <div className="pt-32 grid sm:grid-cols-1   bg-black">
+      <div className="pt-32 grid sm:grid-cols-1  bg-slate-400">
        {quizdetails.map((paper,index)=>(
-        <Question key={paper} quesNumber={paper.question} options={paper.options} no={index} />
+        <Question key={index} handleSubmitquiz={handleSubmitquiz} quesNumber={paper.question} options={paper.options} no={index} />
        ))}
+       <div className="grid sm:grid-1 gap-10 border rounded-md border-emerald-400  min-w-[100px] m-auto mb-5  bg-slate-900 ">
+      <button
+        onClick={()=>navigate("/contest/result")}
+          type="submit"
+          className=" bg-slate-900 p-3  text-4xl text-center   font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-green-500 "
+         
+        >
+          Submit
+        </button>
       </div>
+      </div>
+      
     </>
   );
 }

@@ -1,26 +1,35 @@
 import React, { useState } from "react";
 
 function Header() {
-  const [username, setUsername] = useState("Shivam");
+  const [username, setUsername] = useState("Shivam Batham");
   const [time, setTImer] = useState(100);
-  return ( 
-    <header  className=" fixed min-w-[100%] h-[90px] bg-red-300 ">
+  
+  const submitbutton = (
+    <div className=" sm:col-span-2 ">
+      <button
+        onClick={() => navigate("/contest")}
+        type="submit"
+        className="border w-[100%] p-5 rounded-md border-emerald-400 text-4xl text-center   font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-green-500"
+      >
+        Submit
+      </button>
+    </div>
+  );
+  return (
+    <header className="fixed bg-gray-950 shadow-lg shadow-neutral-300  sm:min-h-[100px] overflow-hidden p-5  w-[100%] ">
+      <nav className="grid sm:grid-cols-12 grid-cols-6  gap-5 ">
+        <div className="sm:col-span-2 col-span-2">
+          <h1 className="text-4xl text-center   font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-green-500">
+            {username}
+          </h1>
+        </div>
 
-    
-    <nav className="grid sm:grid-cols-12 grid-cols-12  pt-[15px]  gap-5  text-white place-content-center ">
-
-      <div className="border   rounded-xl  col-span-2  border-white min-h-[60px] ">
-        {username}
-      </div>
-      <div className="border  rounded-xl  col-span-8  border-white min-h-[60px]">
-        {time} Time Left
-      </div>
-      <div className="border   rounded-xl col-span-2  border-white min-h-[60px]">
-        <button className=" " onClick={() => setCount(count + 1)}>
-          submit contest
-        </button>
-      </div>
-    </nav>
+        <div className="sm:col-span-8 col-span-4">
+          <h1 className="text-center text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-green-500">
+            {time} Time Left
+          </h1>
+        </div>
+      </nav>
     </header>
   );
 }
